@@ -28,4 +28,8 @@ Perfect for beginners who want to move beyond basic GUIs and start building more
 2. Install **PySide6** (official Qt for Python):
 
 ```bash
+<<<<<<< HEAD
 pip install PySide6 
+=======
+pip install PySide6 
+>>>>>>> 84ab615af7881451d04c691512b5884f8b2554ce
