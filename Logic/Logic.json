@@ -1,0 +1,112 @@
+{"intents": [
+    {"name": "greeting",
+    "examples":["hello", "hi", "What's up", "sup", "hola"],
+    "responses":["Greetings!", "HAIIII", "HELLOO !!!!", "hiii ! how are you ?", "SO NICE TO SEE YOU !", "Happy to assist you!"],
+    "action": null,
+    "context": null,
+    "conditions":{
+        "time_of_day": {
+            "morning":["RISE N SHINEEEE SOLIDER !", "TOP OF THE MORNING TO YA!"],
+            "afternoon":"Lovely afternoon isn't it ?",
+            "evening":"Good evening !, how can I be helpful ?"
+        }
+    }
+    },
+
+    {"name": "Farewell",
+    "examples":["bye", "I'll see you soon", "later"],
+    "responses":["Awww come back soon !", "Bye Bye", "Sad to see you leave", "See you around"],
+    "action":null,
+    "context":null,
+    "conditions":null
+    },
+
+    {"name":"Time Query",
+    "examples":["Time", "What's the time ?", "tell time"],
+    "responses": ["It's {time}"],
+    "action": "get_time",
+    "context": null,
+    "conditions": null
+    },
+
+    {"name":"Play game",
+    "examples":["Space invader", "launch game", "launch the game", "I wanna play", "game"],
+    "responses":["Launching", "On it", "Starting the game!"],
+    "action": "launch_game",
+    "context":null,
+    "conditions":null
+    },
+
+    {"name":"small talk",
+    "examples":["I'm bored"],
+    "responses":[],
+    "action": null,
+    "context": null,
+    "conditions":{
+        "emotion":{
+            "happy":[],
+            "sad":[],
+            "nuetral":[]
+        }
+    }
+
+    },
+
+    {"name":"Reminder/Alarms",
+    "examples":[],
+    "responses":[],
+    "action": "store_reminder",
+    "context": null,
+    "conditions": "Time-based"
+    },
+
+    {"name":"Memory Query",
+    "examples":[],
+    "responses":[],
+    "action": null,
+    "context": null,
+    "conditions": null
+    },
+
+    {"name":"Fallback",
+    "examples":[],
+    "responses":[],
+    "action": null,
+    "context": null,
+    "conditions": null
+    }
+
+]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

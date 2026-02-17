@@ -1,1 +1,26 @@
-idk goon a bit before acc making the robot 
+Robo_App/
+│
+├── main.py                 # PyQt chat GUI
+├── chatbot.py              # Chatbot brain (loads JSONs, handles intents, actions, time)
+├── planning.txt            # Project planning notes
+├── folder_structure.txt    # Folder reference
+│
+├── logic/                  # JSON data (bot “brain”)
+│   ├── intents.json        # Chat intents, actions, and time-aware responses
+│   ├── personality.json    # Bot personality settings (tone, humor, topics)
+│   └── memory.json         # User data, reminders, conversation history
+│
+├── games/                  # Pygame games
+│   └── space_invaders/
+│       ├── space_invaders.py   # Main game script
+│       └── assets/              # Images, sounds for the game
+│
+├── assets/                 # Shared assets for GUI or chatbot (optional)
+│   ├── images/
+│   └── sounds/
+│
+├── models/                 # Future AI models (e.g., intent classifier)
+│
+└── utils/                  # Helper modules (optional)
+    ├── time_helpers.py     # Functions for time queries, reminders, scheduling
+    └── helpers.py          # Other utility functions
