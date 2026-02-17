@@ -1,31 +1,56 @@
-import tkinter as tk
+import sys
+from PyQt6.QtWidgets import (
+    QApplication, QWidget, QVBoxLayout,
+    QTextEdit, QLineEdit
+)
+from PyQt6.QtCore import Qt
 
-# create the main window
-window = tk.Tk()
-window.title("Robot Console")
-window.geometry("500x400") # width x height
 
-# Create the output area
-output_area = tk.Text(window, height =15, width=60)
-output_area.pack(pady=10)
+class CommandWindow(QWidget):
+    def __init__(self):
+        super().__init__()
 
-# Create the input box
-input_box = tk.Entry(window, width = 50)
-input_box.pack(pady = 10)
+        self.setWindowTitle("Robo App")
+        self.resize(700, 500)
 
-# Define the function BEFORE using it in the button
-def sub_command():
-    command = input_box.get()
-    input_box.delete(0, tk.END)    # clears input box
-    
-    # For now, just echo the command 
-    output_area.insert(tk.END, f"You: {command}\n")
-    output_area.insert(tk.END, f"Robot: You said '{command}'\n\n")
-    output_area.see(tk.END)  # auto-scroll to the bottom
+        layout = QVBoxLayout()
 
-# Create the button the calls the function
-submit_button = tk.Button(window, text="Send", command=sub_command)
-submit_button.pack()
+        # Output display
+        self.output = QTextEdit()
+        self.output.setReadOnly(True)
+        self.output.setStyleSheet("background:black;color:red;")
+        layout.addWidget(self.output)
 
-# Run the window loop
-window.mainloop()
+        # Command input
+        self.input_line = QLineEdit()
+        self.input_line.setPlaceholderText("Type a command and press Enter...")
+        self.input_line.returnPressed.connect(self.run_command)
+        layout.addWidget(self.input_line)
+
+        self.setLayout(layout)
+
+        self.print_output("Robo App at your service.")
+
+    def print_output(self, text):
+        self.output.append(text)
+
+    def run_command(self):
+        command = self.input_line.text()
+        self.print_output(f"> {command}")
+        self.input_line.clear()
+
+        # --- Example commands ---
+        if command == "help":
+            self.print_output("Commands: help, clear, hello")
+        elif command == "clear":
+            self.output.clear()
+        elif command == "hello":
+            self.print_output("Hello, Minal 👋")
+        else:
+            self.print_output("Unknown command")
+
+
+app = QApplication(sys.argv)
+window = CommandWindow()
+window.show()
+sys.exit(app.exec())
